@@ -11,3 +11,150 @@
 [0m06:27:50.665596 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002552844F950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000255283CC090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000255284D17D0>]}
 [0m06:27:50.665596 [debug] [MainThread]: Flushing usage events
 [0m06:27:56.368791 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:55:53.656259 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020995556A50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020995555C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020995556710>]}
+
+
+============================== 20:55:53.661128 | 35bc8f77-8225-4fe9-a577-213900b52163 ==============================
+[0m20:55:53.661128 [info ] [MainThread]: Running with dbt=1.11.11
+[0m20:55:53.661647 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\LOQ\\.dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt ', 'use_experimental_parser': 'False', 'log_path': 'c:\\Users\\LOQ\\OneDrive\\Documents\\Brazelian e-commerce dbt\\logs'}
+[0m20:55:53.794836 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '35bc8f77-8225-4fe9-a577-213900b52163', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209944D43D0>]}
+[0m20:55:53.822792 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m20:55:53.823777 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m20:55:53.824906 [debug] [MainThread]: Command `cli deps` succeeded at 20:55:53.824906 after 0.28 seconds
+[0m20:55:53.826070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002099555C190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209955DD790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209955C1510>]}
+[0m20:55:53.826712 [debug] [MainThread]: Flushing usage events
+[0m20:56:07.581772 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:08:34.318212 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FC2C4F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FAF10A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FC226C10>]}
+
+
+============================== 00:08:34.318212 | 80fcc972-2420-4e37-91f8-0ef4f348a414 ==============================
+[0m00:08:34.318212 [info ] [MainThread]: Running with dbt=1.11.11
+[0m00:08:34.333889 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\LOQ\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --select stg_customers.sql', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\LOQ\\OneDrive\\Documents\\Brazelian e-commerce dbt\\logs'}
+[0m00:08:34.954530 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m00:08:34.954530 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m00:08:34.954530 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m00:08:35.188006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FA9B2990>]}
+[0m00:08:35.243759 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FC2D8110>]}
+[0m00:08:35.243759 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m00:08:35.698330 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m00:08:35.796518 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:08:35.796518 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m00:08:35.796518 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:08:35.828244 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FD31F990>]}
+[0m00:08:35.924083 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\LOQ\OneDrive\Documents\Brazelian e-commerce dbt\target\manifest.json
+[0m00:08:35.926092 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\LOQ\OneDrive\Documents\Brazelian e-commerce dbt\target\semantic_manifest.json
+[0m00:08:35.939776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FD5983D0>]}
+[0m00:08:35.939776 [info ] [MainThread]: Found 2 models, 9 sources, 536 macros
+[0m00:08:35.939776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FCD70150>]}
+[0m00:08:35.939776 [info ] [MainThread]: 
+[0m00:08:35.939776 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m00:08:35.939776 [info ] [MainThread]: 
+[0m00:08:35.939776 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:08:35.939776 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SILVER_DB'
+[0m00:08:41.053322 [debug] [ThreadPool]: Using snowflake connection "list_SILVER_DB"
+[0m00:08:41.053322 [debug] [ThreadPool]: On list_SILVER_DB: show terse schemas in database SILVER_DB
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "Brazelian_E_Commerce", "target_name": "dev", "connection_name": "list_SILVER_DB"} */
+[0m00:08:41.053322 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:08:44.171481 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 3.117 seconds
+[0m00:08:44.180810 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SILVER_DB_PUBLIC'
+[0m00:08:44.188835 [debug] [ThreadPool]: Using snowflake connection "list_SILVER_DB_PUBLIC"
+[0m00:08:44.190842 [debug] [ThreadPool]: On list_SILVER_DB_PUBLIC: show objects in SILVER_DB.PUBLIC
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "Brazelian_E_Commerce", "target_name": "dev", "connection_name": "list_SILVER_DB_PUBLIC"} */;
+[0m00:08:44.190842 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:08:46.032082 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 1.841 seconds
+[0m00:08:46.034790 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FD8597D0>]}
+[0m00:08:46.047779 [debug] [Thread-2 (]: Began running node model.brazelian_e_commerce.stg_customers
+[0m00:08:46.047779 [info ] [Thread-2 (]: 1 of 1 START sql view model PUBLIC.stg_customers ............................... [RUN]
+[0m00:08:46.047779 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.brazelian_e_commerce.stg_customers'
+[0m00:08:46.047779 [debug] [Thread-2 (]: Began compiling node model.brazelian_e_commerce.stg_customers
+[0m00:08:46.066032 [debug] [Thread-2 (]: Writing injected SQL for node "model.brazelian_e_commerce.stg_customers"
+[0m00:08:46.068192 [debug] [Thread-2 (]: Began executing node model.brazelian_e_commerce.stg_customers
+[0m00:08:46.095272 [debug] [Thread-2 (]: Writing runtime sql for node "model.brazelian_e_commerce.stg_customers"
+[0m00:08:46.095272 [debug] [Thread-2 (]: Using snowflake connection "model.brazelian_e_commerce.stg_customers"
+[0m00:08:46.095272 [debug] [Thread-2 (]: On model.brazelian_e_commerce.stg_customers: create or replace   view SILVER_DB.PUBLIC.stg_customers
+  
+  
+  
+  
+  as (
+    
+
+WITH source AS (
+    SELECT * FROM BRONZE_DB.RAW_CUSTOMERS.raw_customers
+),
+
+cleaned AS (
+    SELECT
+        -- Primary key
+        customer_id, --Used to connect the orders table to the customers table
+
+        customer_unique_id, --Used to uniquely identify each of the customer
+
+        --customer_city — should be in title case (first letter of each word capitalized)
+        INITCAP(TRIM(COALESCE(customer_city,'Unknown'))) AS customer_city,
+        -- customer_state — should be exactly 2 uppercase letters
+        UPPER(TRIM(COALESCE(customer_state, 'XX'))) AS customer_state,
+
+        -- customer_zip_code_prefix — should be exactly 5 digits
+        LPAD(TRIM(customer_zip_code_prefix), 5, '0') AS zip_code_prefix,
+
+
+        -- Audit columns
+        _file_name,
+        _loaded_at
+
+    FROM source
+    WHERE customer_id IS NOT NULL AND customer_unique_id IS NOT NULL
+)
+
+SELECT * FROM cleaned
+  )
+/* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "Brazelian_E_Commerce", "target_name": "dev", "node_id": "model.brazelian_e_commerce.stg_customers"} */;
+[0m00:08:46.095272 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m00:08:48.415559 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c544de-0109-8cd7-002e-564b00248cb2
+[0m00:08:48.415559 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'. Your primary role ECOMM_ENGINEER must have CREATE VIEW granted on SCHEMA SILVER_DB.PUBLIC.
+[0m00:08:48.419478 [debug] [Thread-2 (]: Database Error in model stg_customers (Brazelian_E_Commerce/models\staging\stg_customers.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on schema 'PUBLIC'. Your primary role ECOMM_ENGINEER must have CREATE VIEW granted on SCHEMA SILVER_DB.PUBLIC.
+  compiled code at target\run\brazelian_e_commerce\Brazelian_E_Commerce/models\staging\stg_customers.sql
+[0m00:08:48.422149 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '80fcc972-2420-4e37-91f8-0ef4f348a414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FE1AEE50>]}
+[0m00:08:48.422149 [error] [Thread-2 (]: 1 of 1 ERROR creating sql view model PUBLIC.stg_customers ...................... [[31mERROR[0m in 2.37s]
+[0m00:08:48.424167 [debug] [Thread-2 (]: Finished running node model.brazelian_e_commerce.stg_customers
+[0m00:08:48.424167 [debug] [Thread-5 (]: Marking all children of 'model.brazelian_e_commerce.stg_customers' to be skipped because of status 'error'.  Reason: Database Error in model stg_customers (Brazelian_E_Commerce/models\staging\stg_customers.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on schema 'PUBLIC'. Your primary role ECOMM_ENGINEER must have CREATE VIEW granted on SCHEMA SILVER_DB.PUBLIC.
+  compiled code at target\run\brazelian_e_commerce\Brazelian_E_Commerce/models\staging\stg_customers.sql.
+[0m00:08:48.427185 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:08:48.429199 [debug] [MainThread]: Connection 'list_SILVER_DB' was left open.
+[0m00:08:48.431211 [debug] [MainThread]: On list_SILVER_DB: Close
+[0m00:08:49.140023 [debug] [MainThread]: Connection 'list_SILVER_DB_PUBLIC' was left open.
+[0m00:08:49.140023 [debug] [MainThread]: On list_SILVER_DB_PUBLIC: Close
+[0m00:08:49.908230 [debug] [MainThread]: Connection 'model.brazelian_e_commerce.stg_customers' was left open.
+[0m00:08:49.908230 [debug] [MainThread]: On model.brazelian_e_commerce.stg_customers: Close
+[0m00:08:50.736030 [info ] [MainThread]: 
+[0m00:08:50.742507 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 14.80 seconds (14.80s).
+[0m00:08:50.742507 [debug] [MainThread]: Command end result
+[0m00:08:50.838941 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\LOQ\OneDrive\Documents\Brazelian e-commerce dbt\target\manifest.json
+[0m00:08:50.838941 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\LOQ\OneDrive\Documents\Brazelian e-commerce dbt\target\semantic_manifest.json
+[0m00:08:50.845213 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\LOQ\OneDrive\Documents\Brazelian e-commerce dbt\target\run_results.json
+[0m00:08:50.845213 [info ] [MainThread]: 
+[0m00:08:50.845213 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m00:08:50.845213 [info ] [MainThread]: 
+[0m00:08:50.851167 [error] [MainThread]: [31mFailure in model stg_customers (Brazelian_E_Commerce/models\staging\stg_customers.sql)[0m
+[0m00:08:50.852013 [error] [MainThread]:   Database Error in model stg_customers (Brazelian_E_Commerce/models\staging\stg_customers.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on schema 'PUBLIC'. Your primary role ECOMM_ENGINEER must have CREATE VIEW granted on SCHEMA SILVER_DB.PUBLIC.
+  compiled code at target\run\brazelian_e_commerce\Brazelian_E_Commerce/models\staging\stg_customers.sql
+[0m00:08:50.852013 [info ] [MainThread]: 
+[0m00:08:50.852013 [info ] [MainThread]:   compiled code at target\compiled\brazelian_e_commerce\Brazelian_E_Commerce/models\staging\stg_customers.sql
+[0m00:08:50.852013 [info ] [MainThread]: 
+[0m00:08:50.852013 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[0m00:08:50.858125 [debug] [MainThread]: Command `dbt run` failed at 00:08:50.858125 after 16.61 seconds
+[0m00:08:50.859133 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244F4469C10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FC3343D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000244FC334690>]}
+[0m00:08:50.859133 [debug] [MainThread]: Flushing usage events
+[0m00:08:52.495110 [debug] [MainThread]: An error was encountered while trying to flush usage events
