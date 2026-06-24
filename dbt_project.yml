@@ -1,0 +1,15 @@
+name: brazelian_e_commerce
+version: '1.0.0'
+
+profile: 'Brazelian_E_Commerce'
+
+model-paths: ["Brazelian_E_Commerce/models"]
+analysis-paths: ["Brazelian_E_Commerce/analyses"]
+test-paths: ["Brazelian_E_Commerce/tests"]
+seed-paths: ["Brazelian_E_Commerce/seeds"]
+macro-paths: ["Brazelian_E_Commerce/macros"]
+snapshot-paths: ["Brazelian_E_Commerce/snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"

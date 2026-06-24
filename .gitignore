@@ -5,6 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
+profiles.yml
 
 # Virtual environments
 .venv
+dbt_internal_packages/

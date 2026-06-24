@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: bronze_orders
+    database: BRONZE_DB
+    schema: RAW_ORDERS
+    tables:
+      - name: raw_orders
+
+  - name: bronze_customers
+    database: BRONZE_DB
+    schema: RAW_CUSTOMERS
+    tables:
+      - name: raw_customers
+
+  - name: bronze_order_items
+    database: BRONZE_DB
+    schema: RAW_ORDER_ITEMS
+    tables:
+      - name: raw_order_items
+
+  - name: bronze_products
+    database: BRONZE_DB
+    schema: RAW_PRODUCTS
+    tables:
+      - name: raw_products
+
+  - name: bronze_payments
+    database: BRONZE_DB
+    schema: RAW_ORDER_PAYMENTS
+    tables:
+      - name: raw_order_payments
+
+  - name: bronze_reviews
+    database: BRONZE_DB
+    schema: RAW_REVIEWS
+    tables:
+      - name: raw_order_reviews
+
+  - name: bronze_sellers
+    database: BRONZE_DB
+    schema: RAW_SELLERS
+    tables:
+      - name: raw_sellers
+
+  - name: bronze_geolocation
+    database: BRONZE_DB
+    schema: RAW_GEOLOCATION
+    tables:
+      - name: raw_geolocation
+
+  - name: bronze_category
+    database: BRONZE_DB
+    schema: RAW_CATEGORY
+    tables:
+      - name: raw_product_category_name_translation

@@ -1,0 +1,379 @@
+==================== 2026-06-24T01:07:18.645647Z | 00000000-0000-0000-0000-000000000000 ====================
+==================== 2026-06-24T01:07:18.645775Z | b6540e4a-1e93-45d1-8c77-4fe7efc0cab6 ====================
+01:07:18.645800 [info ]: Starting dbt LSP server
+01:07:18.645812 [info ]: Connecting to LSP client on port 8000
+01:07:18.648015 [info ]: Successfully connected to LSP client
+01:07:18.648046 [info ]: Creating LSP service...
+01:07:18.747717 [info ]: Creating LSP server...
+01:07:18.747754 [info ]: Starting LSP server...
+01:07:18.771734 [info ]: Loading ~/.dbt/profiles.yml
+01:08:02.329430 [info ]: Started loading project
+01:08:02.330062 [info ]: Loading ~/.dbt/profiles.yml
+01:08:02.344049 [debug]:    Started loading packages
+01:08:02.346283 [debug]:     Loaded [  0.00s] packages
+01:08:02.346924 [info ]: Finished loading project [  0.02s]
+01:08:02.347199 [info ]: Started parsing
+01:08:02.377081 [info ]: Finished parsing [  0.03s]
+01:08:02.377386 [info ]: Cached model count updated: 0 models (estimate)
+01:08:02.377405 [info ]: Cached model count updated: 0 models (accurate)
+01:08:02.377426 [info ]: Started scheduling
+01:08:02.377471 [info ]: Finished scheduling [  0.00s]
+01:08:02.377488 [debug]: Compilation - 0 nodes selected: {}
+01:08:02.377511 [warn ]: [NoNodesForSelectionCriteria (dbt1092)]: The selection criterion '' does not match any enabled nodes
+01:08:02.377531 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+01:08:02.377542 [info ]: Started scheduling
+01:08:02.377553 [info ]: Finished scheduling [  0.00s]
+01:08:03.719406 [debug]: License from file C:\Users\LOQ\.dbt\license.70506183144103 is in refresh window, attempting remote refresh
+01:08:03.724082 [debug]: Requesting license from https://lh079.us1.dbt.com/api/private/accounts/70506183144103/feature-licenses/ with 1 key IDs: ["fusion-prod-2025-11-20"]
+01:08:04.980609 [debug]: License successfully retrieved from remote
+01:08:04.980723 [debug]: License loaded from remote server lh079.us1.dbt.com
+01:08:04.981266 [debug]: License cached to file for account 70506183144103
+01:08:04.981661 [info ]: Started building task graph
+01:08:04.981693 [info ]: Finished building task graph [  0.00s]
+01:08:04.986283 [info ]: Started scheduling
+01:08:04.986341 [info ]: Finished scheduling [  0.00s]
+01:08:04.987644 [info ]: Cached model count updated: 0 models (accurate)
+01:08:06.534007 [info ]: Started loading project
+01:08:06.534618 [info ]: Loading ~/.dbt/profiles.yml
+01:08:06.558393 [info ]: Cached model count updated: 0 models (estimate)
+01:08:06.558417 [info ]: Cached model count updated: 0 models (accurate)
+01:08:06.558431 [info ]: Started scheduling
+01:08:06.558455 [info ]: Finished scheduling [  0.00s]
+01:08:06.558467 [debug]: Compilation - 0 nodes selected: {}
+01:08:06.558479 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+01:08:06.559407 [info ]: Started building task graph
+01:08:06.559442 [info ]: Finished building task graph [  0.00s]
+01:08:06.562458 [info ]: Started scheduling
+01:08:06.562503 [info ]: Finished scheduling [  0.00s]
+01:08:06.562584 [info ]: Finished loading project [  0.03s]
+01:08:06.562902 [info ]: Cached model count updated: 0 models (accurate)
+04:17:44.826975 [info ]: Started loading project
+04:17:44.827775 [info ]: Loading ~/.dbt/profiles.yml
+04:17:44.866633 [info ]: Finished loading project [  0.04s]
+04:17:44.866716 [info ]: Cached model count updated: 0 models (accurate)
+04:17:46.550594 [info ]: Started loading project
+04:17:46.551637 [info ]: Loading ~/.dbt/profiles.yml
+04:17:46.587514 [info ]: Cached model count updated: 0 models (estimate)
+04:17:46.587578 [info ]: Cached model count updated: 0 models (accurate)
+04:17:46.587625 [info ]: Started scheduling
+04:17:46.587711 [info ]: Finished scheduling [  0.00s]
+04:17:46.587740 [debug]: Compilation - 0 nodes selected: {}
+04:17:46.587805 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:17:46.590727 [info ]: Started building task graph
+04:17:46.590783 [info ]: Finished building task graph [  0.00s]
+04:17:46.594584 [info ]: Started scheduling
+04:17:46.594630 [info ]: Finished scheduling [  0.00s]
+04:17:46.594770 [info ]: Finished loading project [  0.04s]
+04:17:46.594969 [info ]: Cached model count updated: 0 models (accurate)
+04:18:03.340408 [info ]: Started loading project
+04:18:03.341371 [info ]: Loading ~/.dbt/profiles.yml
+04:18:03.367983 [info ]: Finished loading project [  0.03s]
+04:18:03.368326 [info ]: Cached model count updated: 0 models (accurate)
+04:18:05.047369 [info ]: Started loading project
+04:18:05.048054 [info ]: Loading ~/.dbt/profiles.yml
+04:18:05.075857 [info ]: Cached model count updated: 0 models (estimate)
+04:18:05.075882 [info ]: Cached model count updated: 0 models (accurate)
+04:18:05.075898 [info ]: Started scheduling
+04:18:05.075920 [info ]: Finished scheduling [  0.00s]
+04:18:05.075934 [debug]: Compilation - 0 nodes selected: {}
+04:18:05.075948 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:18:05.076831 [info ]: Started building task graph
+04:18:05.076857 [info ]: Finished building task graph [  0.00s]
+04:18:05.080671 [info ]: Started scheduling
+04:18:05.080704 [info ]: Finished scheduling [  0.00s]
+04:18:05.080784 [info ]: Finished loading project [  0.03s]
+04:18:05.081200 [info ]: Cached model count updated: 0 models (accurate)
+04:18:18.991764 [info ]: Started loading project
+04:18:18.992454 [info ]: Loading ~/.dbt/profiles.yml
+04:18:19.020373 [info ]: Finished loading project [  0.03s]
+04:18:19.020755 [info ]: Cached model count updated: 0 models (accurate)
+04:18:20.711343 [info ]: Started loading project
+04:18:20.712019 [info ]: Loading ~/.dbt/profiles.yml
+04:18:20.744335 [info ]: Cached model count updated: 0 models (estimate)
+04:18:20.744369 [info ]: Cached model count updated: 0 models (accurate)
+04:18:20.744391 [info ]: Started scheduling
+04:18:20.744420 [info ]: Finished scheduling [  0.00s]
+04:18:20.744435 [debug]: Compilation - 0 nodes selected: {}
+04:18:20.744455 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:18:20.745909 [info ]: Started building task graph
+04:18:20.745955 [info ]: Finished building task graph [  0.00s]
+04:18:20.750914 [info ]: Started scheduling
+04:18:20.750971 [info ]: Finished scheduling [  0.00s]
+04:18:20.751059 [info ]: Finished loading project [  0.04s]
+04:18:20.751368 [info ]: Cached model count updated: 0 models (accurate)
+04:18:33.708805 [info ]: Started loading project
+04:18:33.709485 [info ]: Loading ~/.dbt/profiles.yml
+04:18:33.736192 [info ]: Finished loading project [  0.03s]
+04:18:33.736435 [info ]: Cached model count updated: 0 models (accurate)
+04:18:35.371388 [info ]: Started loading project
+04:18:35.372281 [info ]: Loading ~/.dbt/profiles.yml
+04:18:35.407902 [info ]: Cached model count updated: 0 models (estimate)
+04:18:35.407932 [info ]: Cached model count updated: 0 models (accurate)
+04:18:35.407950 [info ]: Started scheduling
+04:18:35.407973 [info ]: Finished scheduling [  0.00s]
+04:18:35.407985 [debug]: Compilation - 0 nodes selected: {}
+04:18:35.407999 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:18:35.409414 [info ]: Started building task graph
+04:18:35.409459 [info ]: Finished building task graph [  0.00s]
+04:18:35.413144 [info ]: Started scheduling
+04:18:35.413190 [info ]: Finished scheduling [  0.00s]
+04:18:35.413286 [info ]: Finished loading project [  0.04s]
+04:18:35.413640 [info ]: Cached model count updated: 0 models (accurate)
+04:18:41.769271 [info ]: Started loading project
+04:18:41.770022 [info ]: Loading ~/.dbt/profiles.yml
+04:18:41.795497 [info ]: Finished loading project [  0.03s]
+04:18:41.795726 [info ]: Cached model count updated: 0 models (accurate)
+04:18:43.427463 [info ]: Started loading project
+04:18:43.428157 [info ]: Loading ~/.dbt/profiles.yml
+04:18:43.456617 [info ]: Cached model count updated: 0 models (estimate)
+04:18:43.456645 [info ]: Cached model count updated: 0 models (accurate)
+04:18:43.456675 [info ]: Started scheduling
+04:18:43.456698 [info ]: Finished scheduling [  0.00s]
+04:18:43.456711 [debug]: Compilation - 0 nodes selected: {}
+04:18:43.456726 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:18:43.457884 [info ]: Started building task graph
+04:18:43.457920 [info ]: Finished building task graph [  0.00s]
+04:18:43.461821 [info ]: Started scheduling
+04:18:43.461864 [info ]: Finished scheduling [  0.00s]
+04:18:43.461970 [info ]: Finished loading project [  0.03s]
+04:18:43.462234 [info ]: Cached model count updated: 0 models (accurate)
+04:18:50.929612 [info ]: Started loading project
+04:18:50.930266 [info ]: Loading ~/.dbt/profiles.yml
+04:18:50.958127 [info ]: Finished loading project [  0.03s]
+04:18:50.958363 [info ]: Cached model count updated: 0 models (accurate)
+04:18:52.594523 [info ]: Started loading project
+04:18:52.595195 [info ]: Loading ~/.dbt/profiles.yml
+04:18:52.621968 [info ]: Cached model count updated: 0 models (estimate)
+04:18:52.621997 [info ]: Cached model count updated: 0 models (accurate)
+04:18:52.622013 [info ]: Started scheduling
+04:18:52.622035 [info ]: Finished scheduling [  0.00s]
+04:18:52.622046 [debug]: Compilation - 0 nodes selected: {}
+04:18:52.622058 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:18:52.623141 [info ]: Started building task graph
+04:18:52.623181 [info ]: Finished building task graph [  0.00s]
+04:18:52.626988 [info ]: Started scheduling
+04:18:52.627033 [info ]: Finished scheduling [  0.00s]
+04:18:52.627116 [info ]: Finished loading project [  0.03s]
+04:18:52.627377 [info ]: Cached model count updated: 0 models (accurate)
+04:19:12.305969 [info ]: Started loading project
+04:19:12.307963 [info ]: Loading ~/.dbt/profiles.yml
+04:19:12.378578 [info ]: Finished loading project [  0.07s]
+04:19:12.380302 [info ]: Cached model count updated: 0 models (accurate)
+04:19:14.343243 [info ]: Started loading project
+04:19:14.343851 [info ]: Loading ~/.dbt/profiles.yml
+04:19:14.371015 [info ]: Cached model count updated: 0 models (estimate)
+04:19:14.371039 [info ]: Cached model count updated: 0 models (accurate)
+04:19:14.371053 [info ]: Started scheduling
+04:19:14.371074 [info ]: Finished scheduling [  0.00s]
+04:19:14.371084 [debug]: Compilation - 0 nodes selected: {}
+04:19:14.371096 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:19:14.371967 [info ]: Started building task graph
+04:19:14.371992 [info ]: Finished building task graph [  0.00s]
+04:19:14.375467 [info ]: Started scheduling
+04:19:14.375506 [info ]: Finished scheduling [  0.00s]
+04:19:14.375610 [info ]: Finished loading project [  0.03s]
+04:19:14.375886 [info ]: Cached model count updated: 0 models (accurate)
+04:19:27.453604 [info ]: Started loading project
+04:19:27.454987 [info ]: Loading ~/.dbt/profiles.yml
+04:19:27.487738 [info ]: Finished loading project [  0.03s]
+04:19:27.487989 [info ]: Cached model count updated: 0 models (accurate)
+04:19:29.177281 [info ]: Started loading project
+04:19:29.178038 [info ]: Loading ~/.dbt/profiles.yml
+04:19:29.205793 [info ]: Cached model count updated: 0 models (estimate)
+04:19:29.205828 [info ]: Cached model count updated: 0 models (accurate)
+04:19:29.205848 [info ]: Started scheduling
+04:19:29.205878 [info ]: Finished scheduling [  0.00s]
+04:19:29.205898 [debug]: Compilation - 0 nodes selected: {}
+04:19:29.205919 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:19:29.207433 [info ]: Started building task graph
+04:19:29.207478 [info ]: Finished building task graph [  0.00s]
+04:19:29.212447 [info ]: Started scheduling
+04:19:29.212500 [info ]: Finished scheduling [  0.00s]
+04:19:29.212656 [info ]: Finished loading project [  0.04s]
+04:19:29.213100 [info ]: Cached model count updated: 0 models (accurate)
+04:28:30.862675 [info ]: Started loading project
+04:28:30.863379 [info ]: Loading ~/.dbt/profiles.yml
+04:28:30.868285 [info ]: Started loading project
+04:28:30.868761 [info ]: Loading ~/.dbt/profiles.yml
+04:28:30.868807 [info ]: Finished loading project [  0.01s]
+04:28:30.874388 [debug]:    Started loading packages
+04:28:30.877110 [debug]:     Loaded [  0.00s] packages
+04:28:30.877713 [info ]: Finished loading project [  0.01s]
+04:28:30.877898 [info ]: Started parsing
+04:28:30.903503 [debug]: Finished parsing Brazelian_E_Commerce\models\staging\sources.yml [  0.00s]
+04:28:30.906981 [info ]: Finished parsing [  0.03s]
+04:28:30.907463 [info ]: Cached model count updated: 0 models (estimate)
+04:28:30.907477 [info ]: Cached model count updated: 0 models (accurate)
+04:28:30.907490 [info ]: Started scheduling
+04:28:30.907520 [info ]: Finished scheduling [  0.00s]
+04:28:30.907529 [debug]: Compilation - 0 nodes selected: {}
+04:28:30.907545 [warn ]: [NoNodesForSelectionCriteria (dbt1092)]: The selection criterion '' does not match any enabled nodes
+04:28:30.907565 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:28:30.907572 [info ]: Started scheduling
+04:28:30.907577 [info ]: Finished scheduling [  0.00s]
+04:28:30.908415 [info ]: Started building task graph
+04:28:30.908448 [info ]: Finished building task graph [  0.00s]
+04:28:30.912156 [info ]: Started scheduling
+04:28:30.912190 [info ]: Finished scheduling [  0.00s]
+04:28:30.913672 [info ]: Cached model count updated: 0 models (accurate)
+04:28:32.564433 [info ]: Started loading project
+04:28:32.565245 [info ]: Loading ~/.dbt/profiles.yml
+04:28:32.594770 [info ]: Cached model count updated: 0 models (estimate)
+04:28:32.594800 [info ]: Cached model count updated: 0 models (accurate)
+04:28:32.594819 [info ]: Started scheduling
+04:28:32.594842 [info ]: Finished scheduling [  0.00s]
+04:28:32.594857 [debug]: Compilation - 0 nodes selected: {}
+04:28:32.594873 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:28:32.595877 [info ]: Started building task graph
+04:28:32.595916 [info ]: Finished building task graph [  0.00s]
+04:28:32.600488 [info ]: Started scheduling
+04:28:32.600545 [info ]: Finished scheduling [  0.00s]
+04:28:32.600643 [info ]: Finished loading project [  0.04s]
+04:28:32.601122 [info ]: Cached model count updated: 0 models (accurate)
+04:28:40.552615 [info ]: Started loading project
+04:28:40.553232 [info ]: Loading ~/.dbt/profiles.yml
+04:28:40.578909 [info ]: Started parsing
+04:28:40.624866 [info ]: Finished loading project [  0.07s]
+04:28:40.628477 [debug]: Finished parsing Brazelian_E_Commerce\models\staging\sources.yml [  0.00s]
+04:28:40.639675 [info ]: Finished parsing [  0.06s]
+04:28:40.643138 [info ]: Cached model count updated: 0 models (estimate)
+04:28:40.643161 [info ]: Cached model count updated: 0 models (accurate)
+04:28:40.643210 [info ]: Started scheduling
+04:28:40.645265 [info ]: Finished scheduling [  0.00s]
+04:28:40.645291 [debug]: Compilation - 0 nodes selected: {}
+04:28:40.645649 [warn ]: [NoNodesForSelectionCriteria (dbt1092)]: The selection criterion '+source:brazelian_e_commerce.bronze_orders.raw_orders +source:brazelian_e_commerce.bronze_order_items.raw_order_items +source:brazelian_e_commerce.bronze_customers.raw_customers +source:brazelian_e_commerce.bronze_products.raw_products +source:brazelian_e_commerce.bronze_geolocation.raw_geolocation +source:brazelian_e_commerce.bronze_payments.raw_order_payments +source:brazelian_e_commerce.bronze_sellers.raw_sellers +source:brazelian_e_commerce.bronze_category.raw_product_category_name_translation +source:brazelian_e_commerce.bronze_reviews.raw_order_reviews' does not match any enabled nodes
+04:28:40.645667 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:28:40.647007 [info ]: Started building task graph
+04:28:40.647035 [info ]: Finished building task graph [  0.00s]
+04:28:40.650770 [info ]: Started scheduling
+04:28:40.650857 [info ]: Finished scheduling [  0.00s]
+04:28:40.651567 [info ]: Cached model count updated: 0 models (accurate)
+04:28:42.405246 [info ]: Started loading project
+04:28:42.406160 [info ]: Loading ~/.dbt/profiles.yml
+04:28:42.433867 [info ]: Cached model count updated: 0 models (estimate)
+04:28:42.433889 [info ]: Cached model count updated: 0 models (accurate)
+04:28:42.433917 [info ]: Started scheduling
+04:28:42.433943 [info ]: Finished scheduling [  0.00s]
+04:28:42.433953 [debug]: Compilation - 0 nodes selected: {}
+04:28:42.433964 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+04:28:42.434782 [info ]: Started building task graph
+04:28:42.434804 [info ]: Finished building task graph [  0.00s]
+04:28:42.438469 [info ]: Started scheduling
+04:28:42.438548 [info ]: Finished scheduling [  0.00s]
+04:28:42.438646 [info ]: Finished loading project [  0.03s]
+04:28:42.439130 [info ]: Cached model count updated: 0 models (accurate)
+14:15:06.541359 [info ]: Started loading project
+14:15:06.568877 [info ]: Loading ~/.dbt/profiles.yml
+14:15:06.623222 [info ]: Started loading project
+14:15:06.623761 [info ]: Loading ~/.dbt/profiles.yml
+14:15:06.623848 [info ]: Finished loading project [  0.08s]
+14:15:06.638931 [debug]:    Started loading packages
+14:15:06.642526 [debug]:     Loaded [  0.00s] packages
+14:15:06.643396 [info ]: Finished loading project [  0.02s]
+14:15:06.645902 [info ]: Started parsing
+14:15:06.710492 [debug]: Finished parsing Brazelian_E_Commerce\models\staging\sources.yml [  0.00s]
+14:15:06.731490 [debug]: Finished parsing Brazelian_E_Commerce\models\staging\stg_orders.sql [  0.01s]
+14:15:06.747566 [info ]: Finished parsing [  0.10s]
+14:15:06.753335 [info ]: Cached model count updated: 1 models (estimate)
+14:15:06.753373 [info ]: Cached model count updated: 1 models (accurate)
+14:15:06.754387 [info ]: Started scheduling
+14:15:06.755084 [info ]: Finished scheduling [  0.00s]
+14:15:06.755107 [debug]: Compilation - 0 nodes selected: {}
+14:15:06.755138 [warn ]: [NoNodesForSelectionCriteria (dbt1092)]: The selection criterion '' does not match any enabled nodes
+14:15:06.755155 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+14:15:06.755348 [info ]: Started scheduling
+14:15:06.755841 [info ]: Finished scheduling [  0.00s]
+14:15:06.764397 [info ]: Started building task graph
+14:15:06.766033 [info ]: Finished building task graph [  0.00s]
+14:15:06.782314 [info ]: Started scheduling
+14:15:06.782347 [info ]: Finished scheduling [  0.00s]
+14:15:06.787139 [info ]: Cached model count updated: 1 models (accurate)
+14:15:08.477560 [info ]: Started loading project
+14:15:08.478252 [info ]: Loading ~/.dbt/profiles.yml
+14:15:08.504090 [info ]: Cached model count updated: 1 models (estimate)
+14:15:08.504115 [info ]: Cached model count updated: 1 models (accurate)
+14:15:08.504153 [info ]: Started scheduling
+14:15:08.504187 [info ]: Finished scheduling [  0.00s]
+14:15:08.504200 [debug]: Compilation - 0 nodes selected: {}
+14:15:08.504558 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+14:15:08.505535 [info ]: Started building task graph
+14:15:08.505564 [info ]: Finished building task graph [  0.00s]
+14:15:08.508967 [info ]: Started scheduling
+14:15:08.509015 [info ]: Finished scheduling [  0.00s]
+14:15:08.509170 [info ]: Finished loading project [  0.03s]
+14:15:08.509415 [info ]: Cached model count updated: 1 models (accurate)
+14:15:10.647856 [info ]: Started loading project
+14:15:10.648695 [info ]: Loading ~/.dbt/profiles.yml
+14:15:10.659266 [info ]: Started parsing
+14:15:10.694336 [info ]: Finished loading project [  0.05s]
+14:15:10.706626 [debug]: Finished parsing Brazelian_E_Commerce\models\staging\stg_orders.sql [  0.01s]
+14:15:10.710206 [info ]: Finished parsing [  0.05s]
+14:15:10.712153 [info ]: Cached model count updated: 1 models (estimate)
+14:15:10.712175 [info ]: Cached model count updated: 1 models (accurate)
+14:15:10.712209 [info ]: Started scheduling
+14:15:10.713479 [info ]: Finished scheduling [  0.00s]
+14:15:10.713499 [debug]: Compilation - 1 nodes selected: {"model.brazelian_e_commerce.stg_orders"}
+14:15:10.716544 [info ]: Started building task graph
+14:15:10.717482 [info ]: Finished building task graph [  0.00s]
+14:15:10.719247 [info ]: Started rendering (1 nodes)
+14:15:10.719916 [info ]: Started model PUBLIC.stg_orders
+14:15:10.720140 [debug]: Started rendering model PUBLIC.stg_orders
+14:15:10.726874 [debug]: Compiled SQL for node model.brazelian_e_commerce.stg_orders at target\.lsp\compiled\brazelian_e_commerce\Brazelian_E_Commerce\models\staging\stg_orders.sql
+14:15:10.727573 [debug]: Finished rendering [  0.01s] model PUBLIC.stg_orders [success]
+14:15:10.727597 [info ]: Finished rendering [  0.01s] (1 nodes, 0 skipped, 0 errors)
+14:15:10.727874 [info ]: Started analyzing (1 nodes)
+14:15:10.727888 [debug]: Started analyzing model PUBLIC.stg_orders
+14:15:10.775259 [debug]: Finished analyzing [  0.05s] model PUBLIC.stg_orders [success]
+14:15:10.775282 [info ]: Finished analyzing [  0.05s] (1 nodes, 0 skipped, 0 errors)
+14:15:10.775291 [info ]:  Succeeded [  0.05s] model PUBLIC.stg_orders (view)
+14:15:10.778388 [info ]: Started scheduling
+14:15:10.778459 [info ]: Finished scheduling [  0.00s]
+14:15:10.779460 [info ]: Cached model count updated: 1 models (accurate)
+14:15:12.469612 [info ]: Started loading project
+14:15:12.470446 [info ]: Loading ~/.dbt/profiles.yml
+14:15:12.502121 [info ]: Cached model count updated: 1 models (estimate)
+14:15:12.502144 [info ]: Cached model count updated: 1 models (accurate)
+14:15:12.502178 [info ]: Started scheduling
+14:15:12.502227 [info ]: Finished scheduling [  0.00s]
+14:15:12.502238 [debug]: Compilation - 1 nodes selected: {"model.brazelian_e_commerce.stg_orders"}
+14:15:12.503028 [info ]: Started building task graph
+14:15:12.503069 [info ]: Finished building task graph [  0.00s]
+14:15:12.503357 [info ]: Started rendering (1 nodes)
+14:15:12.503375 [info ]: Started model PUBLIC.stg_orders
+14:15:12.503383 [debug]: Started rendering model PUBLIC.stg_orders
+14:15:12.503419 [info ]: Finished loading project [  0.03s]
+14:15:12.505345 [debug]: Compiled SQL for node model.brazelian_e_commerce.stg_orders at target\.lsp\compiled\brazelian_e_commerce\Brazelian_E_Commerce\models\staging\stg_orders.sql
+14:15:12.505480 [debug]: Finished rendering [  0.00s] model PUBLIC.stg_orders [success]
+14:15:12.505504 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+14:15:12.505555 [info ]: Started analyzing (1 nodes)
+14:15:12.505574 [debug]: Started analyzing model PUBLIC.stg_orders
+14:15:12.506490 [debug]: Finished analyzing [  0.00s] model PUBLIC.stg_orders [success]
+14:15:12.506515 [info ]: Finished analyzing [  0.00s] (1 nodes, 0 skipped, 0 errors)
+14:15:12.506524 [info ]:  Succeeded [  0.00s] model PUBLIC.stg_orders (view)
+14:15:12.509456 [info ]: Started scheduling
+14:15:12.509504 [info ]: Finished scheduling [  0.00s]
+14:15:12.509801 [info ]: Cached model count updated: 1 models (accurate)
+14:15:14.046914 [info ]: Started loading project
+14:15:14.048306 [info ]: Loading ~/.dbt/profiles.yml
+14:15:14.081566 [info ]: Cached model count updated: 1 models (estimate)
+14:15:14.081592 [info ]: Cached model count updated: 1 models (accurate)
+14:15:14.081631 [info ]: Started scheduling
+14:15:14.081689 [info ]: Finished scheduling [  0.00s]
+14:15:14.081704 [debug]: Compilation - 1 nodes selected: {"model.brazelian_e_commerce.stg_orders"}
+14:15:14.082850 [info ]: Started building task graph
+14:15:14.082905 [info ]: Finished building task graph [  0.00s]
+14:15:14.083282 [info ]: Started rendering (1 nodes)
+14:15:14.083305 [info ]: Started model PUBLIC.stg_orders
+14:15:14.083315 [debug]: Started rendering model PUBLIC.stg_orders
+14:15:14.083362 [info ]: Finished loading project [  0.04s]
+14:15:14.083945 [debug]: Compiled SQL for node model.brazelian_e_commerce.stg_orders at target\.lsp\compiled\brazelian_e_commerce\Brazelian_E_Commerce\models\staging\stg_orders.sql
+14:15:14.084096 [debug]: Finished rendering [  0.00s] model PUBLIC.stg_orders [success]
+14:15:14.084120 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+14:15:14.084138 [info ]: Started analyzing (1 nodes)
+14:15:14.084146 [debug]: Started analyzing model PUBLIC.stg_orders
+14:15:14.085714 [debug]: Finished analyzing [  0.00s] model PUBLIC.stg_orders [success]
+14:15:14.085745 [info ]: Finished analyzing [  0.00s] (1 nodes, 0 skipped, 0 errors)
+14:15:14.085752 [info ]:  Succeeded [  0.00s] model PUBLIC.stg_orders (view)
+14:15:14.088576 [info ]: Started scheduling
+14:15:14.088614 [info ]: Finished scheduling [  0.00s]
+14:15:14.088925 [info ]: Cached model count updated: 1 models (accurate)
