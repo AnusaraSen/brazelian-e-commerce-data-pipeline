@@ -33,7 +33,7 @@ sources:
 
   - name: bronze_reviews
     database: BRONZE_DB
-    schema: RAW_REVIEWS
+    schema: RAW_ORDER_REVIEWS
     tables:
       - name: raw_order_reviews
 
@@ -45,12 +45,12 @@ sources:
 
   - name: bronze_geolocation
     database: BRONZE_DB
-    schema: RAW_GEOLOCATION
+    schema: RAW_GEOLOCATIONS
     tables:
-      - name: raw_geolocation
+      - name: raw_geolocations
 
   - name: bronze_category
     database: BRONZE_DB
-    schema: RAW_CATEGORY
+    schema: RAW_PRODUCT_CATEGORY_NAME_TRANSLATION
     tables:
       - name: raw_product_category_name_translation
