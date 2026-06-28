@@ -1,0 +1,243 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: >
+      Fact table at order line item grain. One row per product per order.
+      Incremental load based on _loaded_at timestamp.
+      Only includes delivered and shipped orders.
+    columns:
+      - name: sales_key
+        description: Surrogate key - unique per order line item
+        tests:
+          - unique
+          - not_null
+      - name: customer_key
+        description: Foreign key to dim_customer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: seller_key
+        description: Foreign key to dim_seller
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_seller')
+              field: seller_key
+      - name: product_key
+        description: Foreign key to dim_product
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: date_key
+        description: Foreign key to dim_date
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: order_id
+        description: Business key - order identifier
+        tests:
+          - not_null
+      - name: order_item_id
+        description: Line item sequence within order
+        tests:
+          - not_null
+      - name: price
+        description: Unit price of the product in BRL
+        tests:
+          - not_null
+      - name: freight_value
+        description: Freight cost for this line item in BRL
+        tests:
+          - not_null
+      - name: order_item_total
+        description: price + freight_value
+        tests:
+          - not_null
+      - name: order_status
+        description: Status of the order - filtered to delivered and shipped only
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['delivered', 'shipped']
+      - name: primary_payment_type
+        description: Dominant payment method by value
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Credit_Card', 'Boleto', 'Voucher', 'Debit_Card', 'Unknown']
+
+  - name: dim_customer
+    description: >
+      Customer dimension with geolocation enrichment.
+      Note: customer_id is per-order identifier.
+      Use customer_unique_id for distinct customer counts.
+    columns:
+      - name: customer_key
+        description: Surrogate key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Per-order customer identifier. Foreign key to fact_sales.
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: True customer identifier. Use for distinct customer counts.
+        tests:
+          - not_null
+      - name: zip_code_prefix
+        description: 5-digit zip code prefix
+        tests:
+          - not_null
+      - name: customer_city
+        description: Customer city in title case
+        tests:
+          - not_null
+      - name: customer_state
+        description: Customer state as 2-letter uppercase code
+        tests:
+          - not_null
+
+  - name: dim_seller
+    description: >
+      Seller dimension with geolocation enrichment.
+      seller_id is the true unique identifier for sellers.
+    columns:
+      - name: seller_key
+        description: Surrogate key
+        tests:
+          - unique
+          - not_null
+      - name: seller_id
+        description: Business key - unique seller identifier
+        tests:
+          - unique
+          - not_null
+      - name: seller_zip_code_prefix
+        description: 5-digit zip code prefix
+        tests:
+          - not_null
+      - name: seller_city
+        description: Seller city in title case
+        tests:
+          - not_null
+      - name: seller_state
+        description: Seller state as 2-letter uppercase code
+        tests:
+          - not_null
+
+  - name: dim_product
+    description: >
+      Product dimension with English category translation.
+      Falls back to Portuguese name if no translation exists.
+    columns:
+      - name: product_key
+        description: Surrogate key
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: Business key - unique product identifier
+        tests:
+          - unique
+          - not_null
+      - name: product_category_name_english
+        description: >
+          English category name. Falls back to Portuguese
+          then Uncategorized if no translation exists.
+        tests:
+          - not_null
+
+  - name: dim_date
+    description: >
+      Date dimension covering full Olist data range 2016-2018.
+      Contains one row per calendar day with time intelligence attributes.
+    columns:
+      - name: date_key
+        description: Surrogate key in YYYYMMDD integer format
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        description: Actual date value
+        tests:
+          - unique
+          - not_null
+      - name: year
+        description: Calendar year
+        tests:
+          - not_null
+      - name: month_number
+        description: Month number 1-12
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 12
+      - name: quarter_number
+        description: Quarter number 1-4
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 4
+      - name: day_of_week
+        description: Day of week 0-6, Sunday=0
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 6
+      - name: is_weekend
+        description: TRUE for Saturday and Sunday
+        tests:
+          - not_null
+
+  - name: dim_geolocation
+    description: >
+      Geolocation dimension at zip code prefix grain.
+      Coordinates represent median lat/lng per zip prefix
+      to handle multiple entries per zip in source data.
+    columns:
+      - name: geo_key
+        description: Surrogate key
+        tests:
+          - unique
+          - not_null
+      - name: zip_code_prefix
+        description: 5-digit zip code prefix - one row per zip guaranteed
+        tests:
+          - unique
+          - not_null
+      - name: latitude
+        description: Median latitude for this zip code prefix
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: -35
+              max_value: 45
+              # Brazil latitude range approximately -33 to 5 degrees
+      - name: longitude
+        description: Median longitude for this zip code prefix
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: 125
+              # Brazil longitude range approximately -73 to -35 degrees
+      - name: city
+        description: Most common city name for this zip prefix
+        tests:
+          - not_null
+      - name: state
+        description: Most common state code for this zip prefix
+        tests:
+          - not_null

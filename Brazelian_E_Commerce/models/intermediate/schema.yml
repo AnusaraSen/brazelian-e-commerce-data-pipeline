@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: payments_aggregated
+    description: >
+      Payments aggregated to one row per order.
+      Solves fan-out problem before joining to fact_sales.
+      Primary payment type determined by highest payment value.
+    columns:
+      - name: order_id
+        description: One row per order guaranteed
+        tests:
+          - unique
+          - not_null
+      - name: total_payment_value
+        description: Sum of all payment values for this order
+        tests:
+          - not_null
+      - name: primary_payment_type
+        description: Payment type with highest value
+        tests:
+          - not_null
+      - name: payment_count
+        description: Number of payment rows for this order
+        tests:
+          - not_null
+      - name: is_mixed_payment
+        description: TRUE if order used more than one payment method
+        tests:
+          - not_null

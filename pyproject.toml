@@ -5,6 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "azure-storage-blob>=12.30.0",
     "dbt-core>=1.11.11",
     "dbt-snowflake>=1.11.5",
+    "pandas>=3.0.3",
+    "python-dotenv>=1.2.2",
 ]

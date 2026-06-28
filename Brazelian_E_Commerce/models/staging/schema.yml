@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned orders from Bronze. One row per order.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: customer_id
+        tests: [not_null]
+      - name: order_status
+        tests: [not_null]
+      - name: order_purchase_timestamp
+        tests: [not_null]
+
+  - name: stg_customers
+    description: Cleaned customers. One row per customer_id.
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: customer_unique_id
+        tests: [not_null]
+      - name: zip_code_prefix
+        tests: [not_null]
+
+  - name: stg_order_items
+    description: Cleaned order items. Composite key order_id + order_item_id.
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: order_item_id
+        tests: [not_null]
+      - name: product_id
+        tests: [not_null]
+      - name: seller_id
+        tests: [not_null]
+      - name: price
+        tests: [not_null]
+
+  - name: stg_order_payments
+    description: Cleaned payments. Multiple rows per order possible.
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: payment_value
+        tests: [not_null]
+
+  - name: stg_products
+    description: Cleaned products. One row per product.
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+
+  - name: stg_sellers
+    description: Cleaned sellers. One row per seller.
+    columns:
+      - name: seller_id
+        tests: [unique, not_null]
+
+  - name: stg_geolocation
+    description: Cleaned geolocation. Multiple rows per zip prefix expected.
+    columns:
+      - name: zip_code_prefix
+        tests: [not_null]
+      - name: geolocation_lat
+        tests: [not_null]
+      - name: geolocation_lng
+        tests: [not_null]
+
+  - name: stg_order_reviews
+    description: Cleaned reviews. One row per review.
+    columns:
+      - name: review_id
+        tests: [not_null]
+      - name: order_id
+        tests: [not_null]
+      - name: review_score
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 5
+
+  - name: stg_category_translation
+    description: Portuguese to English category name mapping.
+    columns:
+      - name: product_category_name
+        tests: [unique, not_null]

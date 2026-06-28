@@ -32,14 +32,14 @@ cleaned AS (
             'day',
             TRY_TO_TIMESTAMP(order_purchase_timestamp),
             TRY_TO_TIMESTAMP(order_delivered_customer_date)
-        )                                   AS days_to_deliver,
+        ) AS days_to_deliver,
 
         CASE
             WHEN TRY_TO_TIMESTAMP(order_delivered_customer_date)
                  <= TRY_TO_TIMESTAMP(order_estimated_delivery_date)
             THEN TRUE
             ELSE FALSE
-        END                                 AS delivered_on_time,
+        END AS delivered_on_time,
 
         -- Audit columns
         _file_name,
