@@ -73,6 +73,13 @@ TABLES_CONFIG = [
         "table":        "RAW_GEOLOCATIONS",
         "file_format":  "CSV"
     },
+    {
+        "subfolder":    "customers",   
+        "database":     "BRONZE_DB",
+        "schema":       "RAW_CUSTOMERS",
+        "table":        "RAW_CUSTOMERS",
+        "file_format":  "CSV"
+    },
 ]
 
 # Only synthetic tables get weekly loads
@@ -82,7 +89,8 @@ INCREMENTAL_TABLES = [
     "orders",
     "order_items",
     "payments",
-    "reviews"
+    "reviews",
+    "customers"
 ]
 
 

@@ -15,7 +15,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  brazelian_e_commerce:
+  Brazelian_E_Commerce:
     staging:
       +materialized: view
       +schema: STAGING

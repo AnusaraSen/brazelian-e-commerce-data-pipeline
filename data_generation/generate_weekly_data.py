@@ -270,6 +270,46 @@ def generate_reviews(orders):
 
     return pd.DataFrame(reviews)
 
+def simulate_customer_updates(customers, update_rate=0.02):
+    """
+    Simulate 2% of customers changing their address weekly.
+    This gives SCD2 something real to track.
+    """
+    brazilian_cities = [
+        ('São Paulo', 'SP', '01310'),
+        ('Rio De Janeiro', 'RJ', '20040'),
+        ('Belo Horizonte', 'MG', '30130'),
+        ('Salvador', 'BA', '40020'),
+        ('Brasília', 'DF', '70040'),
+        ('Curitiba', 'PR', '80010'),
+        ('Manaus', 'AM', '69010'),
+        ('Fortaleza', 'CE', '60010'),
+        ('Recife', 'PE', '50010'),
+        ('Porto Alegre', 'RS', '90010'),
+    ]
+
+    # Pick 2% of customers to update
+    n_updates = max(1, int(len(customers) * update_rate))
+    customers_to_update = customers.sample(n_updates)
+
+    updated_records = []
+    for _, customer in customers_to_update.iterrows():
+        new_city, new_state, new_zip = random.choice(brazilian_cities)
+        updated_records.append({
+            'customer_id':          customer['customer_id'],
+            'customer_unique_id':   customer['customer_unique_id'],
+            'customer_zip_code_prefix': new_zip,
+            'customer_city':        new_city,
+            'customer_state':       new_state,
+            '_file_name': (
+                f'synthetic_customer_updates_'
+                f'{datetime.utcnow().strftime("%Y%m%d_%H%M%S")}.csv'
+            ),
+            '_loaded_at': datetime.utcnow()
+        })
+
+    return pd.DataFrame(updated_records)
+
 def upload_to_azure(df, blob_name):
     """Upload DataFrame as CSV to Azure Blob Storage."""
     account = os.getenv('AZURE_STORAGE_ACCOUNT')
@@ -321,6 +361,7 @@ def generate_and_upload_weekly_data(n_orders=None):
     order_items = generate_order_items(orders, products, sellers)
     payments = generate_payments(orders)
     reviews = generate_reviews(orders)
+    customer_updates = simulate_customer_updates(customers)
 
     logger.info(
         f"Generated: {len(orders)} orders, "
@@ -334,7 +375,8 @@ def generate_and_upload_weekly_data(n_orders=None):
     upload_to_azure(order_items, f'order_items/synthetic_items_{today}.csv')
     upload_to_azure(payments,    f'payments/synthetic_payments_{today}.csv')
     upload_to_azure(reviews,     f'reviews/synthetic_reviews_{today}.csv')
-
+    upload_to_azure(customer_updates,f'customers/synthetic_customer_updates_'f'{today}.csv'
+)
     return {
         'orders': len(orders),
         'order_items': len(order_items),
@@ -342,6 +384,8 @@ def generate_and_upload_weekly_data(n_orders=None):
         'reviews': len(reviews),
         'date': today
     }
+# In generate_and_upload_weekly_data()
+
 
 if __name__ == '__main__':
     result = generate_and_upload_weekly_data()
