@@ -1,4 +1,3 @@
-
 {% snapshot snap_customer %}
 
 {{
@@ -16,6 +15,21 @@
     )
 }}
 
+WITH source AS (
+    SELECT * FROM {{ source('bronze_customers', 'raw_customers') }}
+),
+
+-- Get only the latest record per customer_id
+-- This is what the snapshot should compare against
+deduped AS (
+    SELECT *
+    FROM source
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY customer_id
+        ORDER BY _loaded_at DESC
+    ) = 1
+)
+
 SELECT
     customer_id,
     customer_unique_id,
@@ -23,6 +37,6 @@ SELECT
     customer_city,
     customer_state,
     _loaded_at
-FROM {{ source('bronze_customers', 'raw_customers') }}
+FROM deduped
 
 {% endsnapshot %}

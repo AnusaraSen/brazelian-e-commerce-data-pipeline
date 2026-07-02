@@ -3,6 +3,14 @@
 WITH source AS (
     SELECT * FROM {{ source('bronze_customers', 'raw_customers') }}
 ),
+deduped AS (
+    SELECT *
+    FROM source
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY customer_id
+        ORDER BY _loaded_at DESC
+    ) = 1
+),
 
 cleaned AS (
     SELECT
@@ -24,7 +32,7 @@ cleaned AS (
         _file_name,
         _loaded_at
 
-    FROM source
+    FROM deduped
     WHERE customer_id IS NOT NULL AND customer_unique_id IS NOT NULL
 )
 

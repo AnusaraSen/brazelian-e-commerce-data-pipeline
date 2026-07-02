@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "apache-airflow>=3.2.2",
     "azure-storage-blob>=12.30.0",
     "dbt-core>=1.11.11",
     "dbt-snowflake>=1.11.5",

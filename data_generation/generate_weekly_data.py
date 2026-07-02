@@ -15,10 +15,36 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_snowflake_connection():
+    """
+    Create Snowflake connection.
+    In Docker: reads from container environment variables.
+    Locally: reads from .env file via load_dotenv().
+    """
+    # load_dotenv() works locally, does nothing in Docker
+    # Either way os.getenv() finds the variables
+    load_dotenv()
+
+    account  = os.getenv('SNOWFLAKE_ACCOUNT')
+    user     = os.getenv('SNOWFLAKE_USER')
+    password = os.getenv('SNOWFLAKE_PASSWORD')
+
+    # Guard against missing variables
+    if not account:
+        raise ValueError(
+            "SNOWFLAKE_ACCOUNT not found. "
+            "Check environment variables in Docker or .env file locally."
+        )
+    if not user:
+        raise ValueError("SNOWFLAKE_USER not found.")
+    if not password:
+        raise ValueError("SNOWFLAKE_PASSWORD not found.")
+
+    logger.info(f"Connecting to Snowflake account: {account}")
+
     return snowflake.connector.connect(
-        account=os.getenv('SNOWFLAKE_ACCOUNT'),
-        user=os.getenv('SNOWFLAKE_USER'),
-        password=os.getenv('SNOWFLAKE_PASSWORD'),
+        account=account,
+        user=user,
+        password=password,
         warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
         role=os.getenv('SNOWFLAKE_ROLE')
     )
@@ -342,49 +368,66 @@ def upload_to_azure(df, blob_name):
     logger.info(f"Uploaded {len(df)} rows → {blob_name}")
 
 def generate_and_upload_weekly_data(n_orders=None):
-    """
-    Main function called by Airflow.
-    Generates between 500 and 2000 orders randomly
-    to simulate realistic weekly volume variation.
-    """
     if n_orders is None:
-        n_orders = random.randint(500, 2000)
+        n_orders = random.randint(
+            int(os.getenv('WEEKLY_ORDER_MIN', 500)),
+            int(os.getenv('WEEKLY_ORDER_MAX', 2000))
+        )
 
-    today = datetime.utcnow().strftime('%Y%m%d')
+    today = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
     logger.info(f"Generating {n_orders} synthetic orders for {today}")
 
-    # Step 1 — fetch real IDs from Snowflake
+    # Fetch existing IDs from Snowflake
     customers, products, sellers = fetch_existing_ids()
 
-    # Step 2 — generate all four datasets
-    orders = generate_orders(customers, n_orders)
-    order_items = generate_order_items(orders, products, sellers)
-    payments = generate_payments(orders)
-    reviews = generate_reviews(orders)
+    # Generate transaction data
+    orders       = generate_orders(customers, n_orders)
+    order_items  = generate_order_items(orders, products, sellers)
+    payments     = generate_payments(orders)
+    reviews      = generate_reviews(orders)
+
+    # Generate customer address updates for SCD2
     customer_updates = simulate_customer_updates(customers)
 
     logger.info(
         f"Generated: {len(orders)} orders, "
         f"{len(order_items)} items, "
         f"{len(payments)} payments, "
-        f"{len(reviews)} reviews"
+        f"{len(reviews)} reviews, "
+        f"{len(customer_updates)} customer updates"
     )
 
-    # Step 3 — upload to Azure Blob
-    upload_to_azure(orders,      f'orders/synthetic_orders_{today}.csv')
-    upload_to_azure(order_items, f'order_items/synthetic_items_{today}.csv')
-    upload_to_azure(payments,    f'payments/synthetic_payments_{today}.csv')
-    upload_to_azure(reviews,     f'reviews/synthetic_reviews_{today}.csv')
-    upload_to_azure(customer_updates,f'customers/synthetic_customer_updates_'f'{today}.csv'
-)
+    # Upload everything to Azure
+    upload_to_azure(
+        orders,
+        f'orders/synthetic_orders_{today}.csv'
+    )
+    upload_to_azure(
+        order_items,
+        f'order_items/synthetic_items_{today}.csv'
+    )
+    upload_to_azure(
+        payments,
+        f'payments/synthetic_payments_{today}.csv'
+    )
+    upload_to_azure(
+        reviews,
+        f'reviews/synthetic_reviews_{today}.csv'
+    )
+    upload_to_azure(
+        customer_updates,
+        f'customers/synthetic_customer_updates_{today}.csv'
+    )
+
+    # Return dict with all keys the DAG expects
     return {
-        'orders': len(orders),
-        'order_items': len(order_items),
-        'payments': len(payments),
-        'reviews': len(reviews),
-        'date': today
+        'orders':            len(orders),
+        'order_items':       len(order_items),
+        'payments':          len(payments),
+        'reviews':           len(reviews),
+        'customer_updates':  len(customer_updates),  # ← this was missing
+        'date':              today
     }
-# In generate_and_upload_weekly_data()
 
 
 if __name__ == '__main__':

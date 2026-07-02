@@ -18446,3 +18446,15 @@ There are 3 unused configuration paths:
 03:51:51.457574 [info ]: Started loading project
 03:51:51.457773 [info ]: Finished loading project [  0.00s]
 03:51:51.458009 [info ]: Cached model count updated: 5 models (accurate)
+==================== 2026-06-29T06:03:52.204732Z | 00000000-0000-0000-0000-000000000000 ====================
+==================== 2026-06-29T06:03:52.212332Z | a828f881-833a-4b02-8857-5e467f4efe1a ====================
+06:03:52.213240 [info ]: Starting dbt LSP server
+06:03:52.214011 [info ]: Connecting to LSP client on port 8000
+06:03:52.219833 [info ]: Successfully connected to LSP client
+06:03:52.219874 [info ]: Creating LSP service...
+06:03:52.352945 [info ]: Creating LSP server...
+06:03:52.352969 [info ]: Starting LSP server...
+06:04:02.250189 [info ]: Started loading project
+06:04:02.250710 [info ]: Finished loading project [  0.00s]
+06:04:33.765975 [info ]: Started loading project
+06:04:33.766140 [info ]: Finished loading project [  0.00s]

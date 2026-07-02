@@ -73,13 +73,6 @@ TABLES_CONFIG = [
         "table":        "RAW_GEOLOCATIONS",
         "file_format":  "CSV"
     },
-    {
-        "subfolder":    "customers",   
-        "database":     "BRONZE_DB",
-        "schema":       "RAW_CUSTOMERS",
-        "table":        "RAW_CUSTOMERS",
-        "file_format":  "CSV"
-    },
 ]
 
 # Only synthetic tables get weekly loads
@@ -95,21 +88,39 @@ INCREMENTAL_TABLES = [
 
 
 def get_snowflake_connection():
-    """Create and return a Snowflake connection."""
-    try:
-        conn = snowflake.connector.connect(
-            account=os.getenv('SNOWFLAKE_ACCOUNT'),
-            user=os.getenv('SNOWFLAKE_USER'),
-            password=os.getenv('SNOWFLAKE_PASSWORD'),
-            warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
-            role=os.getenv('SNOWFLAKE_ROLE')
-        )
-        logger.info("Snowflake connection established")
-        return conn
-    except Exception as e:
-        logger.error(f"Failed to connect to Snowflake: {e}")
-        raise
+    """
+    Create Snowflake connection.
+    In Docker: reads from container environment variables.
+    Locally: reads from .env file via load_dotenv().
+    """
+    # load_dotenv() works locally, does nothing in Docker
+    # Either way os.getenv() finds the variables
+    load_dotenv()
 
+    account  = os.getenv('SNOWFLAKE_ACCOUNT')
+    user     = os.getenv('SNOWFLAKE_USER')
+    password = os.getenv('SNOWFLAKE_PASSWORD')
+
+    # Guard against missing variables
+    if not account:
+        raise ValueError(
+            "SNOWFLAKE_ACCOUNT not found. "
+            "Check environment variables in Docker or .env file locally."
+        )
+    if not user:
+        raise ValueError("SNOWFLAKE_USER not found.")
+    if not password:
+        raise ValueError("SNOWFLAKE_PASSWORD not found.")
+
+    logger.info(f"Connecting to Snowflake account: {account}")
+
+    return snowflake.connector.connect(
+        account=account,
+        user=user,
+        password=password,
+        warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
+        role=os.getenv('SNOWFLAKE_ROLE')
+    )
 
 def check_sas_token_expiry():
     """
@@ -150,23 +161,12 @@ def check_sas_token_expiry():
 
 
 def load_table(cur, config, stage_name, load_type='incremental'):
-    """
-    Load one table from Azure stage into Snowflake Bronze.
-
-    load_type:
-        'incremental' - skip already loaded files (default)
-        'full'        - force reload all files
-    """
     full_table = (
         f"{config['database']}."
         f"{config['schema']}."
         f"{config['table']}"
     )
-    stage_path = (
-        f"@{stage_name}/"
-        f"{config['subfolder']}/"
-    )
-
+    stage_path = f"@{stage_name}/{config['subfolder']}/"
     force = "TRUE" if load_type == 'full' else "FALSE"
 
     copy_sql = f"""
@@ -190,15 +190,36 @@ def load_table(cur, config, stage_name, load_type='incremental'):
         cur.execute(copy_sql)
         results = cur.fetchall()
 
+        # No results means everything was already loaded — not an error
+        if not results:
+            logger.info(
+                f"{config['table']:30s} | "
+                f"No new files to load (all already processed)"
+            )
+            return {
+                'table': config['table'],
+                'files_loaded': 0,
+                'files_skipped': 0,
+                'files_errored': 0,
+                'rows_loaded': 0
+            }
+
+        # Get actual column names from the cursor
+        # This makes the code immune to column count differences
+        columns = [desc[0] for desc in cur.description]
+
         loaded = 0
         skipped = 0
         errors = 0
         total_rows = 0
 
         for row in results:
-            status = row[1]
-            rows_loaded = row[3] if row[3] else 0
-            total_rows += rows_loaded
+            # Build a dict using real column names — never crashes
+            row_dict = dict(zip(columns, row))
+
+            status = row_dict.get('status', 'UNKNOWN')
+            rows_loaded_count = row_dict.get('rows_loaded') or 0
+            total_rows += rows_loaded_count
 
             if status == 'LOADED':
                 loaded += 1
@@ -206,9 +227,9 @@ def load_table(cur, config, stage_name, load_type='incremental'):
                 skipped += 1
             else:
                 errors += 1
-                logger.warning(
-                    f"Error in {row[0]}: {row[8] if len(row) > 8 else 'unknown'}"
-                )
+                error_msg = row_dict.get('first_error', 'unknown')
+                file_name = row_dict.get('file', 'unknown file')
+                logger.warning(f"Error in {file_name}: {error_msg}")
 
         logger.info(
             f"{config['table']:30s} | "
