@@ -356,7 +356,7 @@ docker compose exec airflow-worker airflow connections add smtp_default \
 | stg_geolocation | Staging | View | Typed coordinates |
 | stg_order_reviews | Staging | View | Score validation, derived is_positive_review |
 | stg_category_translation | Staging | View | Portuguese to English mapping |
-| int_payments_aggregated | Intermediate | View | One row per order, dominant payment type |
+| payments_aggregated | Intermediate | View | One row per order, dominant payment type |
 | dim_date | Dimension | Table | Full date spine 2016–2027 |
 | dim_customer | Dimension | Table | With lat/lng from geolocation |
 | dim_product | Dimension | Table | With English category name |
